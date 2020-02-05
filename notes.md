@@ -79,7 +79,43 @@ There are a couple ways to turn a NodeList into an array.
 const links = Array.from(category.querySelectorAll('a'));
 
 **OR**
-
 const links = [...category.querySelectorAll('a')];
-
 The _Spread_ operator will take every item _out_ of something, (an iterable), and return it back into the containing array.
+
+## Project 6
+
+_Fetch_ returns a _Promise_. The way that you work with a _Promise_ is that you call _.then()_ against it. _.then()_ will return a "blob" of data.
+
+The data that returns from _fetch_, doesn't know what type of data it is yet. The returned _Object_ has a _prototype_ method called _.json()_ attached to it.
+
+```js
+fetch(endpoint).then(blob => blob.json());
+```
+
+The _.json()_ returns _another Promise_, which you can call _.then()_ against.
+
+```js
+    .then(data => console.log(data));
+```
+
+The _.then()_ method of the _json()_ _Promise_, is what holds the usable raw data.
+
+Can get a little hard to read, so break it into seperate lines.
+
+```js
+fetch(endpoint)
+  .then(blob => blob.json())
+  .then(data => console.log(data));
+```
+
+So the _fetch()_ sends out a request. It _then()_ returns in a _promise_. The data within that promise needs to be converted to _json_. The returned _promise_ Object has a _prototype_ method, _.json()_. That then returns yet _another promise_ which will contain the converted usable data.
+
+> The Promise returned from fetch() won’t reject on HTTP error status even if the response is an HTTP 404 or 500. Instead, it will resolve normally (with ok status set to false), and it will only reject on network failure or if anything prevented the request from completing. --MDN
+
+With the usable data, we may was to store it into an array.
+
+let arr = [];
+
+We "could" use a _let_ variable, but if you wanted to keep your variables a _const_ you can use the _spread_ operator to push the contents into the array. If you use just the _push()_ method, you would just be pushing an array INTO your array, which will give you a nested array. _Recommended_ to use _spread_ operator.
+
+_some()_ will check if ANYTHING in your Array, meets what you're looking for.
