@@ -119,3 +119,5 @@ let arr = [];
 We "could" use a _let_ variable, but if you wanted to keep your variables a _const_ you can use the _spread_ operator to push the contents into the array. If you use just the _push()_ method, you would just be pushing an array INTO your array, which will give you a nested array. _Recommended_ to use _spread_ operator.
 
 _some()_ will check if ANYTHING in your Array, meets what you're looking for.
+
+Make sure to _debounce_ your scroll functions.
