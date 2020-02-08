@@ -121,3 +121,23 @@ We "could" use a _let_ variable, but if you wanted to keep your variables a _con
 _some()_ will check if ANYTHING in your Array, meets what you're looking for.
 
 Make sure to _debounce_ your scroll functions.
+
+## Local Storage and Event Delegation
+
+With _forms,_ instead of listening for a "click" event, listen for a _submit_ event.
+
+By default a _form_ refreshes the page. You can use preventDefault to stop the refresh from happening.
+
+```js
+e.preventDefault();
+```
+
+Forms have a reset methods on them you can use. Inside the function handling your form, you can call this.reset() to reset the form.
+
+When passing in (e), _this_ points to the event.
+
+The whole point of _Event Delagation_ is to assign the eventListener to a parent or containing element of the elements you wish to listen on. This can prevent bugs when needed event listeners on elements that may not be loaded or exist at page load.
+
+So if a containing parent, will exist on page load, and you listen for changes on it, meaning on the child elements, the event will fire.
+
+Basically, the containing elements or PARENTS are DELEGATING the event to the children. You can specify which children fire an event, but ultimately it is the parent element telling the specific child, or children to fire an event.
