@@ -1,5 +1,7 @@
 # JavaScript30 By: Wes Bos
 
+## Notes
+
 ## Project 1
 
 If you use _.play()_ on an audio element, it waits for the audio to finish before being able to play again.
